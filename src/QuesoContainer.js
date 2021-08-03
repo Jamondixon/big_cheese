@@ -1,19 +1,10 @@
-import React from 'react'
+import QuesoCard from "./QuesoCard"
 
-
-export default function QuesoContainer({quesos}) {
-    const displayQuesos = () => {
-        return quesos.map(queso => {
-            return (
-                <div keuy={queso.id} >
-                    <h1 className='card-title'>{queso.name}</h1>
-                    <h2 className='card-restaurant'>{queso.restaurant}</h2>
-                    <p className='card-description'>{queso.description}</p>
-                </div>
-            )
-        })
-
-    }
+export default function QuesoContainer({ quesos, clickAction }) {
+    
+    const displayQuesos = () => quesos.map(queso => {
+        return <QuesoCard key={queso.id} queso={queso}  clickAction={clickAction}/>
+    })
 
     return (
         <div className="queso-container">

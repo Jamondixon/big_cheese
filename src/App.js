@@ -11,7 +11,7 @@ function App() {
   const getQuesos = () => {
     fetch('http://localhost:3000/quesos')
     .then(response => response.json())
-    .then(apiQuesos => setQuesos(apiQuesos))
+    .then(quesos => setQuesos(quesos))
 }
 
   useEffect(getQuesos, [])
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <QuesoContainer />
+      <QuesoContainer quesos={quesos}/>
     </div>
   );
 }
